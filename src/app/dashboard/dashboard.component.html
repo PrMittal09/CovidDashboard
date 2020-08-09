@@ -1,0 +1,92 @@
+<app-india *ngIf="country==='India'" (coviddata)="receiveMessage($event)"></app-india>
+<app-us *ngIf="country=='US'" (coviddata)="receiveMessage($event)"></app-us>
+<app-brazil *ngIf="country=='Brazil'" (coviddata)="receiveMessage($event)"></app-brazil>
+<app-russia *ngIf="country=='Russia'" (coviddata)="receiveMessage($event)"></app-russia>
+
+<div fxLayout="row" fxLayoutAlign="space-around center">
+    <div fxFlex="0 1 calc(10%)"></div>
+    <div fxFlex="0 1 calc(40%)">
+        <mat-form-field>
+            <mat-select name="country" placeholder="Select Country" [(ngModel)]="country" required (selectionChange)="selectInputValue(country)">
+                <mat-option value="India">India</mat-option>
+                <mat-option value="US">US</mat-option>
+                <mat-option value="Brazil">Brazil</mat-option>
+                <mat-option value="Russia">Russia</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div fxFlex="0 1 calc(10%)"></div>
+</div>
+<br>
+<div class="container">
+    <div style="width:650px;float:left;">
+        <div class="container"  fxLayoutAlign="space-around center">
+            <mat-card class="block">
+                <mat-card-header>
+                    <div mat-card-avatar></div>
+                    <mat-card-title>Confirmed </mat-card-title>
+                    <mat-card-subtitle>Total Cases</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content style="color:#2E51C6">
+                    <p>
+                        {{data.Confirmed}}
+                    </p>
+                </mat-card-content>
+                <mat-card-footer style="background-color: #2196F3;">
+                    
+                </mat-card-footer>
+            </mat-card>
+            <mat-card class="block">
+                <mat-card-header>
+                    <div mat-card-avatar></div>
+                    <mat-card-title>Active </mat-card-title>
+                    <mat-card-subtitle>Active Cases</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content style="color:#FFD133;">
+                    <p>
+                        {{data.Active}}
+                    </p>
+                </mat-card-content>
+                <mat-card-footer style="background-color: #F9C81D;">
+                    
+                </mat-card-footer>
+            </mat-card>
+        </div>
+
+        <div class="container"  fxLayoutAlign="space-around center">
+            <mat-card class="block">
+                <mat-card-header>
+                    <div mat-card-avatar></div>
+                    <mat-card-title>Recovered </mat-card-title>
+                    <mat-card-subtitle>Recovered Cases</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content style="color:green;">
+                    <p>
+                        {{data.Recovered}}
+                    </p>
+                </mat-card-content>
+                <mat-card-footer style="background-color: #5CC62E;">
+                    
+                </mat-card-footer>
+            </mat-card>
+            <mat-card class="block">
+                <mat-card-header>
+                    <div mat-card-avatar></div>
+                    <mat-card-title>Deaths</mat-card-title>
+                    <mat-card-subtitle>Total Deaths</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content style="color:#F44336">
+                    <p>
+                        {{data.Deaths}}
+                    </p>
+                </mat-card-content>
+                <mat-card-footer style="background-color: red;">
+                
+                </mat-card-footer>
+            </mat-card>
+        </div>
+    </div>
+    <div style="width:330px;float:right;">
+        <app-chart></app-chart>
+    </div>
+</div>

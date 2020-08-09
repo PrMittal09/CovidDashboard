@@ -1,0 +1,19 @@
+.container {
+    display:flex;
+    width:100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .block {
+    width: 280px;
+    height:175px;
+  }
+
+  .mat-card-content {
+    text-align: center;
+    font-size: 48px;
+    height:70px;
+  }
+  .mat-card-footer{
+    height:45px;
+  }

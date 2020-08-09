@@ -1,0 +1,22 @@
+<div >
+    <h1>
+        {{title}}
+      </h1>
+      
+      <div>
+        <canvas
+            baseChart
+            [chartType]="'bar'"
+            [datasets]="chartData"
+            [options]="chartOptions"
+            [legend]="true"
+            [colors]="colors">
+        </canvas>
+      </div>
+</div>
+<div fxLayout="row" >
+    <div fxFlex="0 1 calc(30%)"></div>
+    <div fxFlex="0 1 calc(30%)">
+ <button mat-button (click)="getCountryData()">Refresh Chart</button>
+ </div>
+</div>
