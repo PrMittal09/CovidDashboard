@@ -1,30 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { Subscription } from 'rxjs';
+
 @Component({
   selector: 'app-chart',
   templateUrl: './chart.component.html',
   styleUrls: ['./chart.component.scss']
 })
 export class ChartComponent implements OnInit {
-
+  clickEventsubscription:Subscription;
+  showloader:boolean=true;
   constructor(private service:ApiService) { }
   country:string="india";
   sharedData:any="";
   showchart:boolean=false;
   ngOnInit(): void {
-    
+    this.getCountryData(this.country);
+    this.service.getSharedData().subscribe((data:any)=>{
+      this.getCountryData(data);
+    });
   }
 
   title = 'Bar Chart';
 
-  // ADD CHART OPTIONS. 
   chartOptions = {
     responsive: true
   }
 
-    labels = [];
-  // labels ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+  labels=[];
 
   chartData = [
     {
@@ -60,12 +63,13 @@ export class ChartComponent implements OnInit {
     }
 ]
 
-  getCountryData(){
-    this.country=this.service.getShareData();
-    this.service.getData(this.country).subscribe(
+  getCountryData(countryname:string){
+    this.labels[0]=countryname;
+    this.service.getData(countryname).subscribe(
       (results: any) => {
         try {
          this.sharedData=results[results.length-1];
+         this.showloader=false;
          this.chartData = [
             {
               label: 'Confirmed',

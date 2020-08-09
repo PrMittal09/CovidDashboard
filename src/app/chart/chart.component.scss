@@ -1,4 +1,18 @@
-.mat-button {
-    background-color: black;
-    color:#f7f7f7;
+.progress_spinner {
+    position: relative;
 }
+
+.progress_spinner .mat-progress-spinner{
+    position: absolute;
+    top:20%;
+    left:40%;
+    display: inline;
+  }
+  
+  ::ng-deep .mat-progress-spinner circle{
+    stroke: #2196F3;
+  }
+  
+  :host ::ng-deep .track circle{      
+    stroke-opacity: 0.3 !important;
+  }

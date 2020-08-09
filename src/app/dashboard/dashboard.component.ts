@@ -7,7 +7,7 @@ import { ApiService } from '../services/api.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private sharedservice:ApiService) { }
+  constructor(private sharedService:ApiService) { }
   country:string="India";
   data:any ="";
   ngOnInit(): void {
@@ -24,6 +24,6 @@ export class DashboardComponent implements OnInit {
     else {
       this.country="india";
     }
-    this.sharedservice.sharedData=this.country;
+    this.sharedService.sendSharedData(this.country);
   }
 }

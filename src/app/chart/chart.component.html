@@ -1,22 +1,20 @@
-<div >
-    <h1>
+<div>
+  <div fxLayout="row" fxLayoutAlign="space-around center">
+    <div>
+      <h1>
         {{title}}
       </h1>
-      
-      <div>
-        <canvas
-            baseChart
-            [chartType]="'bar'"
-            [datasets]="chartData"
-            [options]="chartOptions"
-            [legend]="true"
-            [colors]="colors">
-        </canvas>
-      </div>
-</div>
-<div fxLayout="row" >
-    <div fxFlex="0 1 calc(30%)"></div>
-    <div fxFlex="0 1 calc(30%)">
- <button mat-button (click)="getCountryData()">Refresh Chart</button>
- </div>
+    </div>
+
+  </div>
+    
+  <div class="progress_spinner" *ngIf="showloader" style="height:280px">
+    <mat-spinner class="track" diameter="100" mode="determinate" value="100">
+    </mat-spinner>
+    <mat-spinner diameter="100"></mat-spinner>
+  </div>
+    <div *ngIf="!showloader">
+      <canvas height="280" baseChart [chartType]="'bar'"  [labels]="labels" [datasets]="chartData" [options]="chartOptions" [colors]="colors">
+      </canvas>
+    </div>
 </div>

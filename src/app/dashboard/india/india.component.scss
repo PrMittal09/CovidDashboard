@@ -1,0 +1,13 @@
+.progress_spinner .mat-progress-spinner{
+    position: absolute;
+    left:30%;
+    display: inline;
+  }
+  
+  ::ng-deep .mat-progress-spinner circle{
+    stroke: #2196F3;
+  }
+  
+  :host ::ng-deep .track circle{      
+    stroke-opacity: 0.3 !important;
+  }

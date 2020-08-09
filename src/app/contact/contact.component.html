@@ -1,22 +1,56 @@
 <div class="container">
-    <form>
-
-        <!-- name -->
-        <div class="field">
-        <input type="text" name="name" class="input" placeholder="Your Name" [(ngModel)]="name">
-        </div>
-    
-        <!-- email -->
-        <div class="field">
-        <input type="email" name="email" class="input" placeholder="Your Email" [(ngModel)]="email">
-        </div>
-    
-        <!-- message -->
-        <div class="field">
-        <textarea class="textarea" name="message" placeholder="What's on your mind?" [(ngModel)]="message"></textarea>
-        </div>
-    
-        <button mat-button type="submit" >Submit</button>
-    
-    </form>
+    <div fxLayout="row" fxLayoutAlign="center">
+        <mat-card >
+            <mat-card-content >
+                <form #formRef="ngForm" (ngSubmit)="onSubmit(formRef.value)">  
+                    <table >
+                        <tr fxFlex="100" >
+                            <td>
+                                <mat-label><strong>Name :</strong></mat-label>
+                            </td>
+                            <td>
+                                <mat-form-field>
+                                    <mat-label><strong>Your Name </strong></mat-label>
+                                    <input matInput  placeholder="Enter Name" name="name" [(ngModel)]="name" required/>
+                                </mat-form-field>
+                            </td>
+                        </tr>
+                    </table>
+                    <table >
+                        <tr fxFlex="100" >
+                            <td>
+                                <mat-label><strong>Email ID :</strong></mat-label>
+                            </td>
+                            <td>
+                                <mat-form-field>
+                                    <mat-label><strong>Email ID </strong></mat-label>
+                                    <input type="email" matInput placeholder="Enter Email" [(ngModel)]="email"  name="email" required>
+                                </mat-form-field>
+                            </td>
+                        </tr>
+                    </table>
+                    <table >
+                        <tr fxFlex="100" >
+                            <td>
+                                <mat-label><strong>Enter Message :</strong></mat-label>
+                            </td>
+                            <td>
+                                <mat-form-field>
+                                    <mat-label><strong>Your Input </strong></mat-label>
+                                    <textarea matInput name="message" placeholder="What's on your mind?" [(ngModel)]="message" required></textarea>
+                                </mat-form-field>
+                            </td>
+                        </tr>
+                    </table>
+                    <br>
+                    <br>
+                    <br>     
+                    <div fxLayout="row" fxLayoutAlign="space-around center">
+                        <button mat-button [disabled]="formRef.invalid" [ngClass]="{'button': !formRef.invalid}">Send Feeback</button>
+                    </div>
+                </form>
+                
+            </mat-card-content>
+        </mat-card>
+    </div>
 </div>

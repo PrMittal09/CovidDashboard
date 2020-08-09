@@ -1,13 +1,8 @@
-<app-india *ngIf="country==='India'" (coviddata)="receiveMessage($event)"></app-india>
-<app-us *ngIf="country=='US'" (coviddata)="receiveMessage($event)"></app-us>
-<app-brazil *ngIf="country=='Brazil'" (coviddata)="receiveMessage($event)"></app-brazil>
-<app-russia *ngIf="country=='Russia'" (coviddata)="receiveMessage($event)"></app-russia>
-
 <div fxLayout="row" fxLayoutAlign="space-around center">
     <div fxFlex="0 1 calc(10%)"></div>
     <div fxFlex="0 1 calc(40%)">
         <mat-form-field>
-            <mat-select name="country" placeholder="Select Country" [(ngModel)]="country" required (selectionChange)="selectInputValue(country)">
+            <mat-select name="country" placeholder="Select Country" [(ngModel)]="country" (selectionChange)="selectInputValue(country)" disableOptionCentering required >
                 <mat-option value="India">India</mat-option>
                 <mat-option value="US">US</mat-option>
                 <mat-option value="Brazil">Brazil</mat-option>
@@ -18,8 +13,8 @@
     <div fxFlex="0 1 calc(10%)"></div>
 </div>
 <br>
-<div class="container">
-    <div style="width:650px;float:left;">
+<div class="container"  fxLayoutAlign="space-around center">
+    <div style="width:750px;float:left;">
         <div class="container"  fxLayoutAlign="space-around center">
             <mat-card class="block">
                 <mat-card-header>
@@ -29,6 +24,10 @@
                 </mat-card-header>
                 <mat-card-content style="color:#2E51C6">
                     <p>
+                        <app-india *ngIf="country==='India'" (coviddata)="receiveMessage($event)"></app-india>
+                        <app-us *ngIf="country=='US'" (coviddata)="receiveMessage($event)"></app-us>
+                        <app-brazil *ngIf="country=='Brazil'" (coviddata)="receiveMessage($event)"></app-brazil>
+                        <app-russia *ngIf="country=='Russia'" (coviddata)="receiveMessage($event)"></app-russia>
                         {{data.Confirmed}}
                     </p>
                 </mat-card-content>
@@ -44,6 +43,10 @@
                 </mat-card-header>
                 <mat-card-content style="color:#FFD133;">
                     <p>
+                        <app-india *ngIf="country==='India'" (coviddata)="receiveMessage($event)"></app-india>
+                        <app-us *ngIf="country=='US'" (coviddata)="receiveMessage($event)"></app-us>
+                        <app-brazil *ngIf="country=='Brazil'" (coviddata)="receiveMessage($event)"></app-brazil>
+                        <app-russia *ngIf="country=='Russia'" (coviddata)="receiveMessage($event)"></app-russia>
                         {{data.Active}}
                     </p>
                 </mat-card-content>
@@ -62,6 +65,10 @@
                 </mat-card-header>
                 <mat-card-content style="color:green;">
                     <p>
+                        <app-india *ngIf="country==='India'" (coviddata)="receiveMessage($event)"></app-india>
+                        <app-us *ngIf="country=='US'" (coviddata)="receiveMessage($event)"></app-us>
+                        <app-brazil *ngIf="country=='Brazil'" (coviddata)="receiveMessage($event)"></app-brazil>
+                        <app-russia *ngIf="country=='Russia'" (coviddata)="receiveMessage($event)"></app-russia>
                         {{data.Recovered}}
                     </p>
                 </mat-card-content>
@@ -77,6 +84,10 @@
                 </mat-card-header>
                 <mat-card-content style="color:#F44336">
                     <p>
+                        <app-india *ngIf="country==='India'" (coviddata)="receiveMessage($event)"></app-india>
+                        <app-us *ngIf="country=='US'" (coviddata)="receiveMessage($event)"></app-us>
+                        <app-brazil *ngIf="country=='Brazil'" (coviddata)="receiveMessage($event)"></app-brazil>
+                        <app-russia *ngIf="country=='Russia'" (coviddata)="receiveMessage($event)"></app-russia>
                         {{data.Deaths}}
                     </p>
                 </mat-card-content>
@@ -86,7 +97,7 @@
             </mat-card>
         </div>
     </div>
-    <div style="width:330px;float:right;">
+    <div style="width:350px;float:right;">
         <app-chart></app-chart>
     </div>
 </div>

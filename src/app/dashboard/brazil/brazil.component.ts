@@ -7,7 +7,7 @@ import { ApiService } from '../../services/api.service';
   styleUrls: ['./brazil.component.scss']
 })
 export class BrazilComponent implements OnInit {
-
+  showloader:boolean=true;
   country:string="brazil";
   data:any="";
   constructor(private apiservice: ApiService) { }
@@ -22,6 +22,7 @@ export class BrazilComponent implements OnInit {
     this.apiservice.getData(this.country).subscribe(
       (results: any) => {
         try {
+        this.showloader=false;
          this.data=results[results.length-1];
          this.coviddata.emit(this.data);
         } catch (error) {

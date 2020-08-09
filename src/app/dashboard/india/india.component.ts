@@ -8,6 +8,7 @@ import { ApiService } from '../../services/api.service';
 export class IndiaComponent implements OnInit {
   country:string="india";
   data:any="";
+  showloader:boolean=true;
   constructor(private apiservice: ApiService) { }
 
   ngOnInit(): void {
@@ -17,9 +18,11 @@ export class IndiaComponent implements OnInit {
   @Output() coviddata = new EventEmitter<string>();
 
   sendData() {
+    
     this.apiservice.getData(this.country).subscribe(
       (results: any) => {
         try {
+         this.showloader=false;
          this.data=results[results.length-1];
          this.coviddata.emit(this.data);
         } catch (error) {
