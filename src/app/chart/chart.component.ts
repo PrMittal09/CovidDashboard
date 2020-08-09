@@ -56,7 +56,7 @@ export class ChartComponent implements OnInit {
       backgroundColor: '#F9C81D'
     },
     {
-      backgroundColor: 'F44336'
+      backgroundColor: '#F44336'
     }
 ]
 
