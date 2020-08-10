@@ -6,17 +6,19 @@ import { ApiService } from '../services/api.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-
+  showdata:boolean=false;
   constructor(private sharedService:ApiService) { }
   country:string="India";
   data:any ="";
   ngOnInit(): void {
-    
+
   }
 
   receiveMessage($event) {
-    this.data = $event;
+      this.data=$event;
+      this.showdata=true;
   }
+
   selectInputValue(value:any) {
     if(value){
       this.country=value;
@@ -24,6 +26,7 @@ export class DashboardComponent implements OnInit {
     else {
       this.country="india";
     }
+    this.showdata=false;
     this.sharedService.sendSharedData(this.country);
   }
 }

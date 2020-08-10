@@ -24,11 +24,11 @@
                 </mat-card-header>
                 <mat-card-content style="color:#2E51C6">
                     <p>
-                        <app-india *ngIf="country==='India'" (coviddata)="receiveMessage($event)"></app-india>
+                        <app-india *ngIf="country=='India'" (coviddata)="receiveMessage($event)"></app-india>
                         <app-us *ngIf="country=='US'" (coviddata)="receiveMessage($event)"></app-us>
                         <app-brazil *ngIf="country=='Brazil'" (coviddata)="receiveMessage($event)"></app-brazil>
                         <app-russia *ngIf="country=='Russia'" (coviddata)="receiveMessage($event)"></app-russia>
-                        {{data.Confirmed}}
+                        <span *ngIf="showdata">{{data.Confirmed}}</span>
                     </p>
                 </mat-card-content>
                 <mat-card-footer style="background-color: #2196F3;">
@@ -43,11 +43,11 @@
                 </mat-card-header>
                 <mat-card-content style="color:#FFD133;">
                     <p>
-                        <app-india *ngIf="country==='India'" (coviddata)="receiveMessage($event)"></app-india>
+                        <app-india *ngIf="country=='India'" (coviddata)="receiveMessage($event)"></app-india>
                         <app-us *ngIf="country=='US'" (coviddata)="receiveMessage($event)"></app-us>
                         <app-brazil *ngIf="country=='Brazil'" (coviddata)="receiveMessage($event)"></app-brazil>
                         <app-russia *ngIf="country=='Russia'" (coviddata)="receiveMessage($event)"></app-russia>
-                        {{data.Active}}
+                        <span *ngIf="showdata">{{data.Active}}</span>
                     </p>
                 </mat-card-content>
                 <mat-card-footer style="background-color: #F9C81D;">
@@ -65,11 +65,11 @@
                 </mat-card-header>
                 <mat-card-content style="color:green;">
                     <p>
-                        <app-india *ngIf="country==='India'" (coviddata)="receiveMessage($event)"></app-india>
+                        <app-india *ngIf="country=='India'" (coviddata)="receiveMessage($event)"></app-india>
                         <app-us *ngIf="country=='US'" (coviddata)="receiveMessage($event)"></app-us>
                         <app-brazil *ngIf="country=='Brazil'" (coviddata)="receiveMessage($event)"></app-brazil>
                         <app-russia *ngIf="country=='Russia'" (coviddata)="receiveMessage($event)"></app-russia>
-                        {{data.Recovered}}
+                        <span *ngIf="showdata">{{data.Recovered}}</span>
                     </p>
                 </mat-card-content>
                 <mat-card-footer style="background-color: #5CC62E;">
@@ -84,11 +84,11 @@
                 </mat-card-header>
                 <mat-card-content style="color:#F44336">
                     <p>
-                        <app-india *ngIf="country==='India'" (coviddata)="receiveMessage($event)"></app-india>
+                        <app-india *ngIf="country=='India'" (coviddata)="receiveMessage($event)"></app-india>
                         <app-us *ngIf="country=='US'" (coviddata)="receiveMessage($event)"></app-us>
                         <app-brazil *ngIf="country=='Brazil'" (coviddata)="receiveMessage($event)"></app-brazil>
                         <app-russia *ngIf="country=='Russia'" (coviddata)="receiveMessage($event)"></app-russia>
-                        {{data.Deaths}}
+                        <span *ngIf="showdata">{{data.Deaths}}</span>
                     </p>
                 </mat-card-content>
                 <mat-card-footer style="background-color: red;">

@@ -11,17 +11,14 @@ import { MatToolbarModule}from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule }from '@angular/material/menu';
 import { MatDialogModule }from '@angular/material/dialog';
-import { MatExpansionModule }from '@angular/material/expansion';
 import { MatCardModule }from '@angular/material/card';
 import { MatListModule }from '@angular/material/list';
+import { MatSelectModule} from '@angular/material/select';
 import { MatIconModule }from '@angular/material/icon';
 import { MatInputModule } from  '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule }  from '@angular/material/checkbox';
-import { MatRadioModule } from '@angular/material/radio';
-import { MatSelectModule } from '@angular/material/select';
-import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { FooterComponent } from './footer/footer.component';
@@ -59,17 +56,14 @@ import { ContactComponent } from './contact/contact.component';
     MatSidenavModule,
     MatMenuModule, 
     MatDialogModule,
-    MatExpansionModule,
     MatCardModule,
-    MatListModule,
     MatIconModule,
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
     MatCheckboxModule,
-    MatRadioModule,
+    MatListModule,
     MatSelectModule,
-    MatPaginatorModule,
     MatProgressSpinnerModule,
     MatProgressBarModule,
     HttpClientModule,
