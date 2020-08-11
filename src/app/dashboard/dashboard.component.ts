@@ -7,6 +7,7 @@ import { ApiService } from '../services/api.service';
 })
 export class DashboardComponent implements OnInit {
   showdata:boolean=false;
+  showloader:boolean=true;
   constructor(private sharedService:ApiService) { }
   country:string="India";
   data:any ="";
@@ -16,7 +17,9 @@ export class DashboardComponent implements OnInit {
 
   receiveMessage($event) {
       this.data=$event;
+      this.showloader=false;
       this.showdata=true;
+
   }
 
   selectInputValue(value:any) {
@@ -26,6 +29,7 @@ export class DashboardComponent implements OnInit {
     else {
       this.country="india";
     }
+    this.showloader=true;
     this.showdata=false;
     this.sharedService.sendSharedData(this.country);
   }

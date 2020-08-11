@@ -1,3 +1,7 @@
+<app-india *ngIf="country=='India'" (coviddata)="receiveMessage($event)"></app-india>
+<app-us *ngIf="country=='US'" (coviddata)="receiveMessage($event)"></app-us>
+<app-brazil *ngIf="country=='Brazil'" (coviddata)="receiveMessage($event)"></app-brazil>
+<app-russia *ngIf="country=='Russia'" (coviddata)="receiveMessage($event)"></app-russia>
 <div fxLayout="row" fxLayoutAlign="space-around center">
     <div fxFlex="0 1 calc(10%)"></div>
     <div fxFlex="0 1 calc(40%)">
@@ -23,12 +27,13 @@
                     <mat-card-subtitle>Total Cases</mat-card-subtitle>
                 </mat-card-header>
                 <mat-card-content style="color:#2E51C6">
-                    <p>
-                        <app-india *ngIf="country=='India'" (coviddata)="receiveMessage($event)"></app-india>
-                        <app-us *ngIf="country=='US'" (coviddata)="receiveMessage($event)"></app-us>
-                        <app-brazil *ngIf="country=='Brazil'" (coviddata)="receiveMessage($event)"></app-brazil>
-                        <app-russia *ngIf="country=='Russia'" (coviddata)="receiveMessage($event)"></app-russia>
+                    <p *ngIf="!showloader">
                         <span *ngIf="showdata">{{data.Confirmed}}</span>
+                    </p>
+                    <p class="progress_spinner" *ngIf="showloader">
+                        <mat-spinner class="track" diameter="70" mode="determinate" value="100">
+                        </mat-spinner>
+                        <mat-spinner diameter="70"></mat-spinner>
                     </p>
                 </mat-card-content>
                 <mat-card-footer style="background-color: #2196F3;">
@@ -42,12 +47,13 @@
                     <mat-card-subtitle>Active Cases</mat-card-subtitle>
                 </mat-card-header>
                 <mat-card-content style="color:#FFD133;">
-                    <p>
-                        <app-india *ngIf="country=='India'" (coviddata)="receiveMessage($event)"></app-india>
-                        <app-us *ngIf="country=='US'" (coviddata)="receiveMessage($event)"></app-us>
-                        <app-brazil *ngIf="country=='Brazil'" (coviddata)="receiveMessage($event)"></app-brazil>
-                        <app-russia *ngIf="country=='Russia'" (coviddata)="receiveMessage($event)"></app-russia>
+                    <p *ngIf="!showloader">
                         <span *ngIf="showdata">{{data.Active}}</span>
+                    </p>
+                    <p class="progress_spinner" *ngIf="showloader">
+                        <mat-spinner class="track" diameter="70" mode="determinate" value="100">
+                        </mat-spinner>
+                        <mat-spinner diameter="70"></mat-spinner>
                     </p>
                 </mat-card-content>
                 <mat-card-footer style="background-color: #F9C81D;">
@@ -64,12 +70,13 @@
                     <mat-card-subtitle>Recovered Cases</mat-card-subtitle>
                 </mat-card-header>
                 <mat-card-content style="color:green;">
-                    <p>
-                        <app-india *ngIf="country=='India'" (coviddata)="receiveMessage($event)"></app-india>
-                        <app-us *ngIf="country=='US'" (coviddata)="receiveMessage($event)"></app-us>
-                        <app-brazil *ngIf="country=='Brazil'" (coviddata)="receiveMessage($event)"></app-brazil>
-                        <app-russia *ngIf="country=='Russia'" (coviddata)="receiveMessage($event)"></app-russia>
+                    <p *ngIf="!showloader">
                         <span *ngIf="showdata">{{data.Recovered}}</span>
+                    </p>
+                    <p class="progress_spinner" *ngIf="showloader">
+                        <mat-spinner class="track" diameter="70" mode="determinate" value="100">
+                        </mat-spinner>
+                        <mat-spinner diameter="70"></mat-spinner>
                     </p>
                 </mat-card-content>
                 <mat-card-footer style="background-color: #5CC62E;">
@@ -83,12 +90,13 @@
                     <mat-card-subtitle>Total Deaths</mat-card-subtitle>
                 </mat-card-header>
                 <mat-card-content style="color:#F44336">
-                    <p>
-                        <app-india *ngIf="country=='India'" (coviddata)="receiveMessage($event)"></app-india>
-                        <app-us *ngIf="country=='US'" (coviddata)="receiveMessage($event)"></app-us>
-                        <app-brazil *ngIf="country=='Brazil'" (coviddata)="receiveMessage($event)"></app-brazil>
-                        <app-russia *ngIf="country=='Russia'" (coviddata)="receiveMessage($event)"></app-russia>
+                    <p *ngIf="!showloader">
                         <span *ngIf="showdata">{{data.Deaths}}</span>
+                    </p>
+                    <p class="progress_spinner" *ngIf="showloader">
+                        <mat-spinner class="track" diameter="70" mode="determinate" value="100">
+                        </mat-spinner>
+                        <mat-spinner diameter="70"></mat-spinner>
                     </p>
                 </mat-card-content>
                 <mat-card-footer style="background-color: red;">
