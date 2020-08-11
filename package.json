@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build --prod --aot --build-optimizer && gzipper compress"
+    "postinstall": "ng build --prod --aot --build-optimizer && gzipper compress ./dist"
   },
   "private": true,
   "dependencies": {
