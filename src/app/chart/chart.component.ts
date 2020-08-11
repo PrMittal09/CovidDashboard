@@ -24,10 +24,16 @@ export class ChartComponent implements OnInit {
   title = 'Bar Chart';
 
   chartOptions = {
-    responsive: true
+    responsive: true,
+    scales: {
+      yAxes: [{ticks: {fontSize: 14, fontColor: '#333', fontStyle: '500'}}],
+      xAxes: [{ticks: {fontSize: 16, fontColor: '#333', fontStyle: '700'}}]
+    }
   }
 
   labels=[];
+
+
 
   chartData = [
     {
