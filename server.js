@@ -3,8 +3,11 @@ const path = require('path');
 
 const app = express();
 
+const compression = require('compression');
+
 // Serve only the static files form the dist directory
 app.use(express.static(__dirname + '/dist/Dashboard'));
+app.use(compression());
 
 app.get('/*', function(req,res) {
     
